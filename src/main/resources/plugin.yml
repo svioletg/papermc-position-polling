@@ -1,0 +1,10 @@
+name: position-polling
+description: $description
+prefix: PositionPolling
+version: '${version}'
+
+main: io.github.svioletg.positionPolling.PositionPolling
+api-version: '26.2'
+load: POSTWORLD
+
+website: https://github.com/svioletg/papermc-position-polling
