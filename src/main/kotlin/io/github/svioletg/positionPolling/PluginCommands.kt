@@ -10,7 +10,7 @@ class PluginCommands(private val plugin: PositionPolling) {
     fun turnPollingOn(): LiteralArgumentBuilder<CommandSourceStack?>? {
         return Commands.literal("on").executes(fun(ctx): Int {
             this.plugin.doPolling = true
-            this.plugin.server.broadcast(Component.text("polling: ${this.plugin.doPolling}"))
+            this.plugin.server.broadcast(Component.text("Positions will now be logged"))
 
             return Command.SINGLE_SUCCESS
         })
@@ -19,7 +19,7 @@ class PluginCommands(private val plugin: PositionPolling) {
     fun turnPollingOff(): LiteralArgumentBuilder<CommandSourceStack?>? {
         return Commands.literal("off").executes(fun(ctx): Int {
             this.plugin.doPolling = false
-            this.plugin.server.broadcast(Component.text("polling: ${this.plugin.doPolling}"))
+            this.plugin.server.broadcast(Component.text("Positions will not be logged"))
 
             return Command.SINGLE_SUCCESS
         })
