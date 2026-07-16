@@ -4,7 +4,7 @@ import org.bukkit.entity.Player
 import java.sql.Connection
 import java.sql.DriverManager
 
-class DatabaseManager {
+class DatabaseManager(private val plugin: PositionPolling) {
     private var conn: Connection? = null
 
     fun setup() {
@@ -32,7 +32,7 @@ class DatabaseManager {
 
         // Initialize driver
         Class.forName("org.sqlite.JDBC")
-        conn = DriverManager.getConnection("jdbc:sqlite:plugins/position-polling/data.db")
+        conn = DriverManager.getConnection("jdbc:sqlite:plugins/${this.plugin.name}/data.db")
         this.conn = conn
 
         return conn

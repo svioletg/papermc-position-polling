@@ -5,7 +5,7 @@ import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents
 import org.bukkit.plugin.java.JavaPlugin
 
 class PositionPolling : JavaPlugin() {
-    val db: DatabaseManager = DatabaseManager()
+    val db: DatabaseManager = DatabaseManager(this)
     var doPolling: Boolean = false
 
     override fun onEnable() {
