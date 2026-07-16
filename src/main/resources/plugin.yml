@@ -1,4 +1,4 @@
-name: position-polling
+name: PositionPolling
 description: $description
 prefix: PositionPolling
 version: '${version}'
