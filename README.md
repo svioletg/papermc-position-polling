@@ -18,5 +18,11 @@ The database has a single `player_positions` table with this structure:
 
 ## Configuration
 
-The rate at which positions are logged can be set with the `poll-rate-ticks`
-key in Minecraft ticks (1/20th of a second).
+- `poll-rate-ticks`: How many ticks to wait between each check for positions
+- `start-polling-on-startup`: Whether to immediately start logging positions once the plugin is
+  enabled (use `/positionpolling on` to manually enable it)
+
+## Commands
+
+- `/positionpolling on`: Enables position logging
+- `/positionpolling off`: Disables position logging
