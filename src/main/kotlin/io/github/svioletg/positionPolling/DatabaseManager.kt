@@ -11,7 +11,7 @@ class DatabaseManager(private val plugin: PositionPolling) {
         val conn = this.getConnection()
         val query = buildString {
             append("CREATE TABLE IF NOT EXISTS player_positions(")
-            append("epoch_ms INTEGER, ")
+            append("timestamp REAL, ")
             append("player_uuid TEXT, ")
             append("world TEXT, ")
             append("x INTEGER, ")
@@ -40,9 +40,9 @@ class DatabaseManager(private val plugin: PositionPolling) {
 
     fun recordPlayerPos(players: Array<Player>) {
         val conn = this.getConnection()
-        val epoch = System.currentTimeMillis()
+        val epoch = System.currentTimeMillis() / 1000
 
-        val query = "INSERT INTO player_positions(epoch_ms, player_uuid, world, x, y, z) VALUES(?, ?, ?, ?, ?, ?);"
+        val query = "INSERT INTO player_positions(timestamp, player_uuid, world, x, y, z) VALUES(?, ?, ?, ?, ?, ?);"
         val stmt = conn.prepareStatement(query)
 
         for (player in players) {

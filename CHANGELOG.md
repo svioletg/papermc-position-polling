@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Table `player_positions` column `epoch_ms` renamed to `timestamp`, type changed from `INTEGER`
+  to `REAL`
+  - Now stores time since Unix epoch in seconds instead of milliseconds
+
 ## [0.1.0]
 
 Initial beta release.
