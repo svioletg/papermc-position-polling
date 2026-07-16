@@ -10,9 +10,9 @@ load: POSTWORLD
 website: https://github.com/svioletg/papermc-position-polling
 
 commands:
-  on:
+  "on":
     description: "Enables position logging"
     usage: "/positionpolling on"
-  off:
+  "off":
     description: "Disables position logging"
     usage: "/positionpolling off"
