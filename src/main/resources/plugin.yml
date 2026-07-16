@@ -8,3 +8,11 @@ api-version: '26.2'
 load: POSTWORLD
 
 website: https://github.com/svioletg/papermc-position-polling
+
+commands:
+  on:
+    description: "Enables position logging"
+    usage: "/positionpolling on"
+  off:
+    description: "Disables position logging"
+    usage: "/positionpolling off"

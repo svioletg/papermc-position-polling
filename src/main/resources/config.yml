@@ -1,0 +1,2 @@
+poll-rate-ticks: 100
+start-polling-on-start: true
