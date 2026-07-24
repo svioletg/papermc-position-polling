@@ -14,9 +14,9 @@ class DatabaseManager(private val plugin: PositionPolling) {
             append("timestamp REAL, ")
             append("player_uuid TEXT, ")
             append("world TEXT, ")
-            append("x INTEGER, ")
-            append("y INTEGER, ")
-            append("z INTEGER")
+            append("x REAL, ")
+            append("y REAL, ")
+            append("z REAL")
             append(");")
         }
 
