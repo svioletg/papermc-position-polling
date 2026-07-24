@@ -5,6 +5,10 @@ logs every player's position to a local SQLite database, based on a
 user-configured interval, to be used for things like creating heatmap
 visualizations.
 
+## Usage
+
+Records are saved in your `plugins` folder at `PositionPolling/data.db`.
+
 The database has a single `player_positions` table with this structure:
 
 | Column        | SQL Type | Description                                                              |
