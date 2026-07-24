@@ -1,0 +1,30 @@
+name: Upload plugin JAR to published release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  upload-file:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Build JAR
+        run: |
+          ./gradlew build
+
+      - name: Upload JAR to release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PluginName=$(./gradlew properties | sed -n 's/^name: //p')
+          [[ -z $PluginName ]] && echo "Couldn't extract plugin name with './gradlew properties'" && exit 1
+          PluginVersion=$(./gradlew properties | sed -n 's/^version: //p')
+          [[ -z $PluginVersion ]] && echo "Couldn't extract plugin version with './gradlew properties'" && exit 1
+          PluginJar="build/libs/${PluginName}-${PluginVersion}-all.jar"
+          gh release upload ${{ github.event.release.tag_name }} "${PluginJar}" --clobber
