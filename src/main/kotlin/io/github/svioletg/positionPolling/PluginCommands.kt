@@ -7,6 +7,15 @@ import io.papermc.paper.command.brigadier.Commands
 import net.kyori.adventure.text.Component
 
 class PluginCommands(private val plugin: PositionPolling) {
+    fun getPollingStatus(): LiteralArgumentBuilder<CommandSourceStack?>? {
+        return Commands.literal("status").executes(fun(ctx): Int {
+            val pluginStatus = if (this.plugin.doPolling) "ON" else "OFF"
+            this.plugin.server.broadcast(Component.text("Position logging is $pluginStatus"))
+
+            return Command.SINGLE_SUCCESS
+        })
+    }
+
     fun turnPollingOn(): LiteralArgumentBuilder<CommandSourceStack?>? {
         return Commands.literal("on").executes(fun(ctx): Int {
             this.plugin.doPolling = true

@@ -18,6 +18,7 @@ class PositionPolling : JavaPlugin() {
         val pluginCommands = PluginCommands(this)
 
         val cmdRoot = Commands.literal("positionpolling")
+        cmdRoot.then(pluginCommands.getPollingStatus())
         cmdRoot.then(pluginCommands.turnPollingOn())
         cmdRoot.then(pluginCommands.turnPollingOff())
 

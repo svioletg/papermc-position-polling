@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added command `/positionpolling status`
+  - Shows whether position logging is currently enabled
+
 ### Changed
 
 - Table `player_positions` column `epoch_ms` renamed to `timestamp`, type changed from `INTEGER`
