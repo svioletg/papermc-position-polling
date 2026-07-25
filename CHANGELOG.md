@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Table `player_positions` column `epoch_ms` renamed to `timestamp`, type changed from `INTEGER`
   to `REAL`
   - Now stores time since Unix epoch in seconds instead of milliseconds
+- Player coordinates are now explicitly converted to integers before storing
 
 ## [0.1.0] - 2026-07-16
 

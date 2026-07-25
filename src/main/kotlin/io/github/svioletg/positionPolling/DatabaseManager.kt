@@ -51,9 +51,9 @@ class DatabaseManager(private val plugin: PositionPolling) {
             stmt.setLong(1, epoch)
             stmt.setString(2, player.uniqueId.toString())
             stmt.setString(3, pos.world.key.toString())
-            stmt.setDouble(4, pos.x)
-            stmt.setDouble(5, pos.y)
-            stmt.setDouble(6, pos.z)
+            stmt.setInt(4, pos.x.toInt())
+            stmt.setInt(5, pos.y.toInt())
+            stmt.setInt(6, pos.z.toInt())
 
             stmt.executeUpdate()
         }
