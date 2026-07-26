@@ -43,10 +43,11 @@ class DatabaseManager(private val plugin: PositionPolling) {
         val epoch = System.currentTimeMillis() / 1000
 
         val query = "INSERT INTO player_positions(timestamp, player_uuid, world, x, y, z) VALUES(?, ?, ?, ?, ?, ?);"
-        val stmt = conn.prepareStatement(query)
 
         for (player in players) {
             val pos = player.location
+
+            val stmt = conn.prepareStatement(query)
 
             stmt.setLong(1, epoch)
             stmt.setString(2, player.uniqueId.toString())
