@@ -14,6 +14,13 @@ class PositionPolling : JavaPlugin() {
         saveDefaultConfig()
         val config = getConfig()
 
+        val pollRate = config.getLong("poll-rate-ticks")
+
+        if (pollRate <= 20) {
+            this.logger.warning("poll-rate-ticks is set to a value lower than 20,"
+                + " logging positions every second or less is not recommended")
+        }
+
         this.doPolling = config.getBoolean("start-polling-on-start")
 
         // Commands

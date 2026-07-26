@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added a warning message on plugin startup if `poll-rate-ticks` is <= 20
 - Added command `/positionpolling status`
   - Shows whether position logging is currently enabled
 - Added property `PositionPolling.pollTask` (nullable)
