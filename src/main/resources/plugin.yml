@@ -10,6 +10,9 @@ load: POSTWORLD
 website: https://github.com/svioletg/papermc-position-polling
 
 commands:
+  "status":
+    description: "Reports whether position logging is enabled"
+    usage: "/positionpolling status"
   "on":
     description: "Enables position logging"
     usage: "/positionpolling on"
