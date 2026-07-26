@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added command `/positionpolling status`
   - Shows whether position logging is currently enabled
+- Added property `PositionPolling.pollTask` (nullable)
+  - The `BukkitTask` object for the position polling task, if it exists
 
 ### Changed
 

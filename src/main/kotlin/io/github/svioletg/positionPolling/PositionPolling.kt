@@ -3,10 +3,12 @@ package io.github.svioletg.positionPolling
 import io.papermc.paper.command.brigadier.Commands
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents
 import org.bukkit.plugin.java.JavaPlugin
+import org.bukkit.scheduler.BukkitTask
 
 class PositionPolling : JavaPlugin() {
     val db: DatabaseManager = DatabaseManager(this)
     var doPolling: Boolean = false
+    var pollTask: BukkitTask? = null
 
     override fun onEnable() {
         saveDefaultConfig()
@@ -28,7 +30,7 @@ class PositionPolling : JavaPlugin() {
 
         // Tasks
         val scheduler = this.server.scheduler
-        scheduler.runTaskTimer(this, GetPositionTask(this), 0, config.getLong("poll-rate-ticks"))
+        this.pollTask = scheduler.runTaskTimer(this, GetPositionTask(this), 0, pollRate)
 
         db.setup()
     }
