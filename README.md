@@ -5,6 +5,9 @@ logs every player's position to a local SQLite database, based on a
 user-configured interval, to be used for things like creating heatmap
 visualizations.
 
+A companion Python package is also available to easily render visualizations
+from your collected data: <https://github.com/svioletg/papermc-position-polling-scripts>
+
 ## Usage
 
 Records are saved in your `plugins` folder at `PositionPolling/data.db`.
