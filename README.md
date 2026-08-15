@@ -6,7 +6,7 @@ user-configured interval, to be used for things like creating heatmap
 visualizations.
 
 A companion Python package is also available to easily render visualizations
-from your collected data: <https://github.com/svioletg/papermc-position-polling-scripts>
+from your collected data: <https://github.com/svioletg/papermc-position-polling-tools>
 
 ## Usage
 
