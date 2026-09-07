@@ -1,6 +1,7 @@
 package io.github.svioletg.positionPolling
 
 import io.papermc.paper.command.brigadier.Commands
+import io.papermc.paper.plugin.configuration.PluginMeta
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents
 import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.scheduler.BukkitTask
@@ -8,6 +9,7 @@ import org.bukkit.scheduler.BukkitTask
 class PositionPolling : JavaPlugin() {
     val db: DatabaseManager = DatabaseManager(this)
     var doPolling: Boolean = false
+    val meta: PluginMeta get() = this.pluginMeta
     var pollTask: BukkitTask? = null
 
     override fun onEnable() {
@@ -16,9 +18,9 @@ class PositionPolling : JavaPlugin() {
 
         val pollRate = config.getLong("poll-rate-ticks")
 
-        if (pollRate <= 20) {
-            this.logger.warning("poll-rate-ticks is set to a value lower than 20,"
-                + " logging positions every second or less is not recommended")
+        if (pollRate < 20) {
+            this.logger.warning("poll-rate-ticks is set to a value less than 20 ($pollRate);"
+                + " logging positions this frequently is not recommended and may lag the server")
         }
 
         this.doPolling = config.getBoolean("start-polling-on-start")
@@ -28,6 +30,7 @@ class PositionPolling : JavaPlugin() {
 
         val cmdRoot = Commands.literal("positionpolling")
         cmdRoot.then(pluginCommands.getPollingStatus())
+        cmdRoot.then(pluginCommands.entryCount())
         cmdRoot.then(pluginCommands.turnPollingOn())
         cmdRoot.then(pluginCommands.turnPollingOff())
 

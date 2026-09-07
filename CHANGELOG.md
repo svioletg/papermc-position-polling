@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-09-07
+
+### Added
+
+- Added command `/positionpolling count`
+- Added method `DatabaseManager.entryCount()`
+- Added method `PluginCommands.entryCount()`
+- Added property `PositionPolling.meta` for access to plugin metadata
+- Added table `plugin_info` with `version` column consisting of a single row
+
 ## [0.2.0] - 2026-08-10
 
 ### Added

@@ -13,6 +13,9 @@ commands:
   "status":
     description: "Reports whether position logging is enabled"
     usage: "/positionpolling status"
+  "count":
+    description: "Prints how many position log entries have been recorded"
+    usage: "/positionpolling count"
   "on":
     description: "Enables position logging"
     usage: "/positionpolling on"

@@ -16,6 +16,15 @@ class PluginCommands(private val plugin: PositionPolling) {
         })
     }
 
+    fun entryCount(): LiteralArgumentBuilder<CommandSourceStack?>? {
+        return Commands.literal("count").executes(fun(ctx): Int {
+            val count = this.plugin.db.entryCount()
+            this.plugin.server.broadcast(Component.text("$count total entries"))
+
+            return Command.SINGLE_SUCCESS
+        })
+    }
+
     fun turnPollingOn(): LiteralArgumentBuilder<CommandSourceStack?>? {
         return Commands.literal("on").executes(fun(ctx): Int {
             this.plugin.doPolling = true
@@ -33,4 +42,5 @@ class PluginCommands(private val plugin: PositionPolling) {
             return Command.SINGLE_SUCCESS
         })
     }
+
 }
