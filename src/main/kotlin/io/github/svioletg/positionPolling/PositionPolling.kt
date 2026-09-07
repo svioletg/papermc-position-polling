@@ -1,6 +1,7 @@
 package io.github.svioletg.positionPolling
 
 import io.papermc.paper.command.brigadier.Commands
+import io.papermc.paper.plugin.configuration.PluginMeta
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents
 import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.scheduler.BukkitTask
@@ -8,6 +9,7 @@ import org.bukkit.scheduler.BukkitTask
 class PositionPolling : JavaPlugin() {
     val db: DatabaseManager = DatabaseManager(this)
     var doPolling: Boolean = false
+    val meta: PluginMeta get() = this.pluginMeta
     var pollTask: BukkitTask? = null
 
     override fun onEnable() {
