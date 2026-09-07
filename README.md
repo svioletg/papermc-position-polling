@@ -33,3 +33,4 @@ The database has a single `player_positions` table with this structure:
 
 - `/positionpolling on`: Enables position logging
 - `/positionpolling off`: Disables position logging
+- `/positionpolling count`: Shows how many position logs have been recorded

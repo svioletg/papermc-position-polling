@@ -59,4 +59,16 @@ class DatabaseManager(private val plugin: PositionPolling) {
             stmt.executeUpdate()
         }
     }
+
+    fun entryCount(): Int {
+        val conn = this.getConnection()
+        var count = 0
+        val query = "SELECT * FROM player_positions;"
+        val result = conn.createStatement().executeQuery(query)
+        while (result.next()) {
+            count += 1
+        }
+
+        return count
+    }
 }
