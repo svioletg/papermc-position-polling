@@ -15,7 +15,11 @@ from your collected data: <https://github.com/svioletg/papermc-position-polling-
 
 Records are saved in your `plugins` folder at `PositionPolling/data.db`.
 
-The database has a single `player_positions` table with this structure:
+This database has two tables: `plugin_info`, and `player_positions`. `plugin_info` has a single `version` column of
+type `TEXT` with a single row which is updated with the plugin's version on startup. This is primarily used by the
+companion Python tools for this plugin to ensure database compatibility.
+
+The `player_positions` table is where player positions are recorded, and it has this structure:
 
 | Column        | SQL Type | Description                                                              |
 |---------------|----------|--------------------------------------------------------------------------|

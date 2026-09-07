@@ -9,7 +9,24 @@ class DatabaseManager(private val plugin: PositionPolling) {
 
     fun setup() {
         val conn = this.getConnection()
-        val query = buildString {
+
+        conn.createStatement().execute(buildString {
+            append("CREATE TABLE IF NOT EXISTS plugin_info(")
+            append("version TEXT")
+            append(");")
+        })
+
+        // Ensure there's a single row, delete any exists ones and rebuild
+        conn.createStatement().execute("DELETE FROM plugin_info;")
+        conn.createStatement().execute(buildString {
+            append("INSERT INTO plugin_info(")
+            append("version")
+            append(") VALUES (")
+            append("'${this@DatabaseManager.plugin.meta.version}'")
+            append(");")
+        })
+
+        conn.createStatement().execute(buildString {
             append("CREATE TABLE IF NOT EXISTS player_positions(")
             append("timestamp REAL, ")
             append("player_uuid TEXT, ")
@@ -18,9 +35,7 @@ class DatabaseManager(private val plugin: PositionPolling) {
             append("y INTEGER, ")
             append("z INTEGER")
             append(");")
-        }
-
-        conn.createStatement().execute(query)
+        })
     }
 
     fun getConnection(): Connection {
