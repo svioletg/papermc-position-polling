@@ -1,5 +1,8 @@
 # PositionPolling
 
+> [!IMPORTANT]
+> Breaking changes are likely between 0.x releases.
+
 A [PaperMC](https://papermc.io/) plugin for Minecraft servers that periodically
 logs every player's position to a local SQLite database, based on a
 user-configured interval, to be used for things like creating heatmap
