@@ -16,7 +16,7 @@ The database has a single `player_positions` table with this structure:
 
 | Column        | SQL Type | Description                                                              |
 |---------------|----------|--------------------------------------------------------------------------|
-| `timestamp`   | REAL     | Unix epoch timestamp at which this position was logged, in milliseconds. |
+| `timestamp`   | REAL     | Unix epoch timestamp at which this position was logged, in seconds.      |
 | `player_uuid` | TEXT     | The UUID of the player whose position was logged.                        |
 | `world`       | TEXT     | The name of the world the player is in.                                  |
 | `x`           | INTEGER  | Player's X coordinate.                                                   |
