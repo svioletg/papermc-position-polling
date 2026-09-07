@@ -31,6 +31,7 @@ The database has a single `player_positions` table with this structure:
 
 ## Commands
 
+- `/positionpolling status`: Shows whether position logging is currently enabled or not
 - `/positionpolling on`: Enables position logging
 - `/positionpolling off`: Disables position logging
 - `/positionpolling count`: Shows how many position logs have been recorded
