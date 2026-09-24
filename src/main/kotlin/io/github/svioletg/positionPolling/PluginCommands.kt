@@ -17,7 +17,9 @@ class PluginCommands(private val plugin: PositionPolling) {
     }
 
     fun entryCount(): LiteralArgumentBuilder<CommandSourceStack?>? {
-        return Commands.literal("count").executes(fun(ctx): Int {
+        return Commands.literal("count")
+            .requires(fun(source): Boolean { return source.sender.hasPermission("positionpolling.command.count") })
+            .executes(fun(ctx): Int {
             val count = this.plugin.db.entryCount()
             this.plugin.server.broadcast(Component.text("$count total entries"))
 
@@ -26,7 +28,9 @@ class PluginCommands(private val plugin: PositionPolling) {
     }
 
     fun turnPollingOn(): LiteralArgumentBuilder<CommandSourceStack?>? {
-        return Commands.literal("on").executes(fun(ctx): Int {
+        return Commands.literal("on")
+            .requires(fun(source): Boolean { return source.sender.hasPermission("positionpolling.command.on") })
+            .executes(fun(ctx): Int {
             this.plugin.doPolling = true
             this.plugin.server.broadcast(Component.text("Positions will now be logged"))
 
@@ -35,7 +39,9 @@ class PluginCommands(private val plugin: PositionPolling) {
     }
 
     fun turnPollingOff(): LiteralArgumentBuilder<CommandSourceStack?>? {
-        return Commands.literal("off").executes(fun(ctx): Int {
+        return Commands.literal("off")
+            .requires(fun(source): Boolean { return source.sender.hasPermission("positionpolling.command.off") })
+            .executes(fun(ctx): Int {
             this.plugin.doPolling = false
             this.plugin.server.broadcast(Component.text("Positions will not be logged"))
 

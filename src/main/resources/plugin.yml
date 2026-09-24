@@ -22,3 +22,14 @@ commands:
   "off":
     description: "Disables position logging"
     usage: "/positionpolling off"
+
+permissions:
+  positionpolling.command.count:
+    description: "Allows usage of the \"/positionpolling count\" command"
+    default: op
+  positionpolling.command.on:
+    description: "Allows usage of the \"/positionpolling on\" command"
+    default: op
+  positionpolling.command.off:
+    description: "Allows usage of the \"/positionpolling off\" command"
+    default: op
