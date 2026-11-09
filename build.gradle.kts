@@ -1,7 +1,7 @@
 plugins {
-    kotlin("jvm") version "2.4.20-Beta1"
-    id("com.gradleup.shadow") version "9.5.1"
-    id("xyz.jpenilla.run-paper") version "3.0.2"
+    kotlin("jvm") version "2.4.+"
+    id("com.gradleup.shadow") version "9.+"
+    id("xyz.jpenilla.run-paper") version "3.+"
 }
 
 repositories {
