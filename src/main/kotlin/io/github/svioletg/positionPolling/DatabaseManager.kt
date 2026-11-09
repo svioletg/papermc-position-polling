@@ -55,7 +55,9 @@ class DatabaseManager(private val plugin: PositionPolling) {
 
     fun recordPlayerPos(players: Array<Player>) {
         val conn = this.getConnection()
-        val epoch = System.currentTimeMillis() / 1000
+
+        val timeMs = System.currentTimeMillis()
+        val epoch = timeMs / 1000
 
         val query = "INSERT INTO player_positions(timestamp, player_uuid, world, x, y, z) VALUES(?, ?, ?, ?, ?, ?);"
 
@@ -79,7 +81,9 @@ class DatabaseManager(private val plugin: PositionPolling) {
         }
 
         if (this.plugin.logPolling && counted > 0) {
-            this.plugin.logger.info("Stored $counted player position record(s)")
+            this.plugin.logger.info(
+                "Stored $counted player position record(s) in ${System.currentTimeMillis() - timeMs}ms"
+            )
         }
     }
 
