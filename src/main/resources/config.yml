@@ -1,2 +1,17 @@
+# PositionPolling configuration
+
 poll-rate-ticks: 100
+# poll-rate-ticks: integer (default: 100)
+#
+# How often to record player positions to the database, in ticks.
+# More frequent polling results in more accurate visualizations but can start
+# impacting performance on servers with lots of players.
+# Setting this to less than 20 ticks (1 second) is not recommended and will
+# emit a warning message on startup.
+
 start-polling-on-start: true
+# start-polling-on-start: boolean (default: true)
+#
+# Whether to start recording position on plugin startup. If set to `false`,
+# polling will need to be manually started later with the `/positionpolling on`
+# command.
