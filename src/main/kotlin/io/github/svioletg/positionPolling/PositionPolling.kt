@@ -24,6 +24,10 @@ class PositionPolling : JavaPlugin() {
         }
 
         this.doPolling = config.getBoolean("start-polling-on-start")
+        this.logger.info(
+            if (this.doPolling) "Position polling has started"
+            else "Position polling has not started; use `/positionpolling on` to start"
+        )
 
         // Commands
         val pluginCommands = PluginCommands(this)
