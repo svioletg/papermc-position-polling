@@ -59,6 +59,8 @@ class DatabaseManager(private val plugin: PositionPolling) {
 
         val query = "INSERT INTO player_positions(timestamp, player_uuid, world, x, y, z) VALUES(?, ?, ?, ?, ?, ?);"
 
+        var counted = 0
+
         for (player in players) {
             val pos = player.location
 
@@ -72,6 +74,12 @@ class DatabaseManager(private val plugin: PositionPolling) {
             stmt.setInt(6, pos.z.toInt())
 
             stmt.executeUpdate()
+
+            counted++
+        }
+
+        if (this.plugin.logPolling && counted > 0) {
+            this.plugin.logger.info("Stored $counted player position record(s)")
         }
     }
 

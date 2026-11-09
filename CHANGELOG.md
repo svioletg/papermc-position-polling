@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added config key `log-polling`
+  - Enables log messages on every poll if 1 or more players are connected to
+    the server
 - Added a log message at startup indicating whether position polling has
   started automatically
 - `config.yml` now includes documentation comments about each key
