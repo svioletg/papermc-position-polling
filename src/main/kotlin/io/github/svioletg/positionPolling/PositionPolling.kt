@@ -9,6 +9,7 @@ import org.bukkit.scheduler.BukkitTask
 class PositionPolling : JavaPlugin() {
     val db: DatabaseManager = DatabaseManager(this)
     var doPolling: Boolean = false
+    var logPolling: Boolean = false
     val meta: PluginMeta get() = this.pluginMeta
     var pollTask: BukkitTask? = null
 
@@ -28,6 +29,8 @@ class PositionPolling : JavaPlugin() {
             if (this.doPolling) "Position polling has started"
             else "Position polling has not started; use `/positionpolling on` to start"
         )
+
+        this.logPolling = config.getBoolean("log-polling")
 
         // Commands
         val pluginCommands = PluginCommands(this)

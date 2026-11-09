@@ -1,5 +1,15 @@
 # PositionPolling configuration
 
+log-polling: false
+# log-polling: boolean (default: false)
+#
+# Whether to send a log message for every position poll, showing how many
+# records were made. This should generally be left disabled unless you're
+# polling infrequently (see `poll-rate-ticks`) as it can clutter up your
+# console output otherwise.
+# If there are no players connected to the server at the time of polling, no
+# log is made.
+
 poll-rate-ticks: 100
 # poll-rate-ticks: integer (default: 100)
 #
