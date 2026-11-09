@@ -40,5 +40,8 @@ The `player_positions` table is where player positions are recorded, and it has 
 
 - `/positionpolling status`: Shows whether position logging is currently enabled or not
 - `/positionpolling on`: Enables position logging
+  - Permission: `positionpolling.command.on` (default: OP)
 - `/positionpolling off`: Disables position logging
+  - Permission: `positionpolling.command.off` (default: OP)
 - `/positionpolling count`: Shows how many position logs have been recorded
+  - Permission: `positionpolling.command.count` (default: OP)
